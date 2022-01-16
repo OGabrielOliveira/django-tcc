@@ -1,0 +1,28 @@
+.bg-gradient-home{
+  background: -moz-linear-gradient(482deg, rgb(116, 226, 228) 22%, rgb(66, 232, 85) 80%);
+  background: -webkit-linear-gradient(482deg, rgb(116, 226, 228) 22%, rgb(66, 232, 85) 80%);
+  background: linear-gradient(482deg, rgba(116, 226, 228,0.6) 22%, rgba(66, 232, 85,0.6) 80%);
+
+  background-image: '../../images/site/polygonal_background.jpg';
+}
+
+
+.bg-gradient-institucional{
+  background: -moz-linear-gradient(533deg, rgba(53, 186, 189, 0.9) 0%, rgba(33, 216, 54, 0.6) 81%);
+  background: -webkit-linear-gradient(533deg, rgba(53, 186, 189, 0.9) 0%, rgba(33, 216, 54, 0.6) 81%);
+  background: linear-gradient(533deg, rgba(53, 186, 189, 0.9) 0%, rgba(33, 216, 54, 0.6) 81%);
+}
+
+.list-group-item.active{
+  background-color: #91b3ea;
+  border-color: transparent;
+}
+
+
+ol.breadcrumb{
+  background-color: inherit;
+  padding: 0;
+  margin: 0;
+
+  margin-top: 10px;
+}
