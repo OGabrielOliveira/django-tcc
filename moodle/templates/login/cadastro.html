@@ -1,0 +1,98 @@
+{% extends 'login/estrutura/base.html'%}
+
+{% block content %}
+<form class='login100-form validate-form flex-sb flex-w' method="POST" action="{[ route('register') ]}">
+  {% csrf_token %}
+
+  <h2 class="login100-form-title p-b-5">
+    Criar conta
+  </h2>
+
+  <div class="p-t-10 p-b-9">
+    <span class="txt1">
+      Nome
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate = "Username is required">
+    <input id="name" type="text" class="input100 form-control @error('name') is-invalid @enderror" name="name" value="{[ old('name') ]}" required autocomplete="name" autofocus>
+
+    @error('name')
+        <span class="invalid-feedback" role="alert">
+            <strong>{[ $message ]}</strong>
+        </span>
+    @enderror
+
+  </div>
+
+  <div class="p-t-10 p-b-9">
+    <span class="txt1">
+      E-mail
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate = "Username is required">
+    <input id="email" type="email" class="input100 form-control @error('email') is-invalid @enderror " name="email" value="{[ old('email') ]}" required autocomplete="email" autofocus>
+
+    @error('email')
+    <span class="invalid-feedback mt-2 mb-0" role="alert">
+      <strong>{[$message]}  </strong>
+    </span>
+    @enderror
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-6 col-sm-12 p-l-0 pr-s-0 pr-2">
+        <div class="p-t-13 p-b-9">
+          <span class="txt1">
+            Senha
+          </span>
+
+        </div>
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input id="password" type="password" class="input100 rwidth form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+          @error('password')
+          <span class="invalid-feedback" role="alert">
+            <strong>{[ $message ]}</strong>
+          </span>
+          @enderror
+
+          <span class="focus-input100"></span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-12 p-l-0 p-r-0">
+        <div class="p-t-13 p-b-9">
+          <span class="txt1">
+            Confirmar senha
+          </span>
+
+        </div>
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input type="password" class="input100 rwidth form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
+
+          <span class="focus-input100"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-login100-form-btn m-t-17">
+    <button class="login100-form-btn">
+      Acessar
+    </button>
+  </div>
+
+  <div class="w-full text-center p-t-20">
+    <a href="{% url 'moodle:login'%}" class="txt2 bo1">
+      <i class="fas fa-chevron-left mr-1"></i>
+      Voltar ao acesso
+    </a>
+  </div>
+
+</form>
+{% endblock content %}

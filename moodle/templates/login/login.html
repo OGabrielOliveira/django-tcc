@@ -1,0 +1,82 @@
+{% extends 'login/estrutura/base.html'%}
+
+
+{% block content %}
+
+<form class="login100-form validate-form flex-sb flex-w" method="POST" action="{[ route('login') ]}">
+  {% csrf_token %}
+  <h2 class="login100-form-title p-b-5">
+    Acesso
+  </h2>
+
+  <div class="p-t-10 p-b-9">
+    <span class="txt1">
+      E-mail
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate = "Username is required">
+    <input id="email" type="email" class="input100 form-control @error('email') is-invalid @enderror " name="email" value="{[ old('email') ]}" required autocomplete="email" autofocus>
+
+    @error('email')
+    <span class="invalid-feedback mt-2 mb-0" role="alert">
+      <strong>{[$message]}  </strong>
+    </span>
+    @enderror
+
+  </div>
+
+  <div class="p-t-13 p-b-9">
+    <span class="txt1">
+      Senha
+    </span>
+
+    <a href="{[ route('password.request') ]}" class="txt2 bo1 m-l-5">
+      (Esqueceu sua senha?)
+    </a>
+  </div>
+  <div class="wrap-input100 validate-input" data-validate = "Password is required">
+    <input id="password" type="password" class="input100 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+    @error('password')
+        <span class="invalid-feedback" role="alert">
+            <strong>{[ $message ]}</strong>
+        </span>
+    @enderror
+
+    <span class="focus-input100"></span>
+  </div>
+  <div class="p-t-13 p-b-9 d-flex align-items-center">
+    <input class="mr-2" type="checkbox" name="remember" id="remember" {[ old('remember') ? 'checked' : '' ]}>
+    <label for="remember">Manter-me conectado</label>
+  </div>
+
+
+  <div class="container-login100-form-btn m-t-17">
+    <button class="login100-form-btn">
+      Acessar
+    </button>
+  </div>
+
+  <div class="w-full text-center p-t-20">
+    <a href="{% url 'moodle:cadastro' %}" class="txt2 bo1">
+      Criar uma conta gratuita
+    </a>
+  </div>
+
+  <!-- <hr class="col-12">
+  <span class="login100-form-title p-b-30">
+    Sign In With
+  </span>
+  <a href="#" class="btn-face m-b-20">
+    <i class="fab fa-facebook-square"></i>
+    Facebook
+  </a>
+  <a href="#" class="btn-google m-b-20">
+    <img src="{[asset('img/icon/icon-google.png')]}" alt="GOOGLE">
+    Google
+  </a> -->
+
+</form>
+
+{% endblock content %}
